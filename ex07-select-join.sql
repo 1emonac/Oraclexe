@@ -91,3 +91,56 @@ SELECT * FROM job_grades;
 SELECT e.last_name, e.salary, j.grade_level
 FROM employees e JOIN job_grades j
 ON e.salary BETWEEN j. lowest_sal AND j.highest_sal;
+
+/*
+INNER JOIN과 OUTER JOIN
+
+        INNER JOIN
+            일치하지 않는 행은 출력에 표시되지 않습니다. (교집합 해당 행 출력)
+        OUTER JOIN
+            한 테이블의 행을 기반으로 다른 테이블과의 연결이 없는 행까지 포함하여 반환합니다.
+*/
+
+/*
+LEFT OUTER JOIN
+        DEPARTMENTS 테이블의 대응되는 행이 없어도 왼쪽 테이블인 EMPLOYEES 테이블의 모든 행을 검색합니다.
+*/
+SELECT e.last_name, e.department_id, d.department_name
+FROM employees e
+LEFT OUTER JOIN departments d -- 조인을 기준으로 왼쪽 테이블은 모두 출력(employees 테이블)
+ON e.department_id = d.department_id;
+
+SELECT e.last_name, e.department_id, d.department_name
+FROM employees e, departments d
+WHERE e.department_id = d.department_id(+);
+
+/*
+RIGHT OUTER JOIN
+        EMPLOYEES 테이블에 대응되는 행이 없어도 오른쪽 테이블인 DEPARTMENTS 테이블의 모든 행을 검색합니다.
+*/
+SELECT e.last_name, e.department_id, d.department_name
+FROM employees e
+RIGHT OUTER JOIN departments d -- 조인을 기준으로 오른쪽 테이블은 모두 출력(departments 테이블)
+ON e.department_id = d.department_id;
+
+/*
+FULL OUTER JOIN
+        DEPARTMENTS, EMPLOYEES 대응되는 행이 없어도 테이블의 모든 행을 검색합니다.
+*/
+SELECT e.last_name, e.department_id, d.department_name
+FROM employees e
+FULL OUTER JOIN departments d
+ON e.department_id = d.department_id;
+
+/*
+Cartesian Product
+        조인 조건이 잘못되거나 완전히 생략된 경우 결과가 모든 행의 조합이 표시되는 Cartesian Product로 나타냅니다.
+*/
+
+/*
+CROSS JOIN
+        두 테이블의 교차 곱을 생성합니다.
+*/
+SELECT last_name, department_name
+FROM employees
+CROSS JOIN departments;
