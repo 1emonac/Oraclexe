@@ -156,6 +156,7 @@ WHERE department_id = 60;
 
 
 -- NVL() 함수 - null 값을 실제 지정한 값으로 반환합니다. (null이 연산이 안될 때 사용) -- null값 = 데이터가 비어있는 것
+-- NVL is "Null Value Logic."
 SELECT last_name, salary, NVL(commission_pct, 0), (salary * 12) AS Y_SAL,
             (salary * 12) + (salary * 12 * NVL(commission_pct, 0)) AS AN_SAL
 FROM employees;
