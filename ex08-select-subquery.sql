@@ -24,9 +24,12 @@ WHERE salary = (SELECT MIN(salary) FROM employees);
                 < ANY는 최대값보다 작음을 의미합니다.
                 > ANY는 최소값보다 큼을 의미합니다.
                 = ANY는 IN과 같습니다.
+            
         ALL
                 > ALL은 최대값보다 큼을 의미합니다.
-                < ALL은 최소값보다 작음을 의미합니다.                
+                < ALL은 최소값보다 작음을 의미합니다.         
+                
+                <> = 같지 않다
 */
 -- ANY
 SELECT employee_id, last_name, job_id, salary
