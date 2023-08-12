@@ -10,7 +10,7 @@ ON worker.manager_id = manager.employee_id;
 -- 2. 각 직원의 성(last_name)과 해당 직원의 부서 이름(department_name) 조회하기
 SELECT e.last_name, d.department_name
 FROM employees e
-LEFT JOIN departments d
+JOIN departments d
 ON e.department_id=d.department_id;
 
 -- 3. 각 부서의 이름(department_name)과 해당 부서의 평균 급여(avg_salary) 조회하기
@@ -46,17 +46,14 @@ AND emp.manager_id = mgr.employee_id;
 -- 8. 각 직원의 성(last_name)과 해당 직원이 속한 부서의 매니저의 성(last_name) 조회하기
 
 
--- 9. 각 직원의 성(last_name)과 해당 직원의 보고 상사가 있는 경우 보고 상사의 성(last_name) 조회하기
-
-
--- 10. 직원들 중에서 급여(salary)가 10000 이상인 직원들의 성(last_name)과 해당 직원의 부서 이름(department_name) 조회하기
+-- 9. 직원들 중에서 급여(salary)가 10000 이상인 직원들의 성(last_name)과 해당 직원의 부서 이름(department_name) 조회하기
 SELECT e.last_name, d.department_name
 FROM employees e JOIN departments d
 ON e.department_id = d.department_id
 WHERE salary >= 10000
 
 /*
-11.
+10.
 각 부서의 이름(department_name), 해당 부서의 매니저의 ID(manager_id)와 매니저의 성(last_name),
 직원의 ID(employee_id), 직원의 성(last_name)10, 그리고 해당 직원의 급여(salary) 조회하기.
 직원들의 급여(salary)가 해당 부서의 평균 급여보다 높은 직원들을 조회합니다.
