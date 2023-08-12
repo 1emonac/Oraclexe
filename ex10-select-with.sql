@@ -34,4 +34,4 @@ WITH RecursiveCTE (id, name, manager_id, depth) AS (
 SELECT id, name, manager_id, depth
 FROM RecursiveCTE
 ;
-d
+
